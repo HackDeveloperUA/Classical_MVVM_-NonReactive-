@@ -70,8 +70,8 @@ pod install
 
 
 [Link on full size picture](
-(https://raw.githubusercontent.com/HackDeveloperUA/Classical_MVVM_-NonReactive-/master/Documentation/Class%20diagram%20of%20the%20application.png)
+(https://raw.githubusercontent.com/HackDeveloperUA/Classical_MVVM_-NonReactive-/master/Documentation/ClassDiagramOftheApplication.png)
 
-![alt text](https://raw.githubusercontent.com/HackDeveloperUA/Classical_MVVM_-NonReactive-/master/Documentation/Class%20diagram%20of%20the%20application.png)
+![alt text](https://raw.githubusercontent.com/HackDeveloperUA/Classical_MVVM_-NonReactive-/master/Documentation/ClassDiagramOftheApplication.png)
 
 
