@@ -62,4 +62,16 @@ pod install
 | ------------- | ------------- | ------------- |  ------------- |
 | ![alt text](https://raw.githubusercontent.com/HackDeveloperUA/Classical_MVVM_-NonReactive-/master/Documentation/Screenshots/1-screen.png)     |    ![alt text](https://raw.githubusercontent.com/HackDeveloperUA/Classical_MVVM_-NonReactive-/master/Documentation/Screenshots/2-screen.png)  |  ![alt text](https://raw.githubusercontent.com/HackDeveloperUA/Classical_MVVM_-NonReactive-/master/Documentation/Screenshots/3-screen.png)  |  ![alt text](https://raw.githubusercontent.com/HackDeveloperUA/Classical_MVVM_-NonReactive-/master/Documentation/Screenshots/4-screen.png)  |
 
+----
+
+
+
+## Class diagram of the application
+
+
+[Link on full size picture](
+(https://raw.githubusercontent.com/HackDeveloperUA/Classical_MVVM_-NonReactive-/master/Documentation/Class%20diagram%20of%20the%20application.png)
+
+![alt text](https://raw.githubusercontent.com/HackDeveloperUA/Classical_MVVM_-NonReactive-/master/Documentation/Class%20diagram%20of%20the%20application.png)
+
 
