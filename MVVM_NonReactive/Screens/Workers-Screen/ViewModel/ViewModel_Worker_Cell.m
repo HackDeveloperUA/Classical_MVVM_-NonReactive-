@@ -11,6 +11,10 @@
 
 @implementation ViewModel_Worker_Cell
 
+
+#pragma mark - Inits methods
+
+
 - (instancetype)initWithWorker:(WorkerShort*) worker
 {
     self = [super init];

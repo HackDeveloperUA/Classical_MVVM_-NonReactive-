@@ -14,6 +14,8 @@
 
 @property (nonatomic, strong) UIWindow* window;
 
+#pragma mark - Navigaton methods
+
 + (void) present:(UIViewController*) vc animated:(BOOL) animate;
 + (void) setToRootView:(UIViewController*) vc andAnimationOptions:(UIViewAnimationOptions) animateOption;
 
@@ -22,8 +24,8 @@
 + (void) popViewController:(UINavigationController*) navContr;
 + (void) popToRootVC:(UINavigationController*) navContr;
 
-#pragma mark - Internal methods
 
+#pragma mark - Internal methods
 
 + (UIViewController*) getRootViewController;
 + (UIWindow*) getApplicationWindow;

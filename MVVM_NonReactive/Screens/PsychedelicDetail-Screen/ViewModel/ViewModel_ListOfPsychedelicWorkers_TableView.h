@@ -31,18 +31,31 @@
 @interface ViewModel_ListOfPsychedelicWorkers_TableView : NSObject
 
 @property (nonatomic, strong) NSMutableArray* vmForCellsArray;  // Here store ViewModels
-@property (nonatomic, strong) WorkerFull*     modelWorker; // Here story Model
+@property (nonatomic, strong) WorkerFull*     modelWorker;      // Here story Model
 
+
+#pragma mark - Init methods
+
+- (instancetype)initWithWorker:(WorkerFull*) workerModel;
+
+
+#pragma mark - Work with API
 
 - (void) generateVMforCells:(void(^)(BOOL successOperation)) success
                   onFailure:(void(^)(NSError* errorBlock)) failure;
 
 
+#pragma mark - Methods for TableView work
+
 - (ViewModel_BasedWorker_Cell*) cellViewModel:(NSInteger) index;
 - (NSInteger) countWorkers;
+
+
+#pragma mark - UI Handlers
+
 - (void) didSelectAtRowFromTable:(NSIndexPath*) indexPath;
 
-- (instancetype)initWithWorker:(WorkerFull*) workerModel;
+
 
 @end
 

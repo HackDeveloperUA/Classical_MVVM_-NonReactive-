@@ -21,6 +21,7 @@
     // Configure the view for the selected state
 }
 
+// Setting data to cell`s view
 - (void) setVmWorkerCell:(ViewModel_WorkerRightAlignment_Cell *)myVM
 {
     _vmWorkerCell = myVM;

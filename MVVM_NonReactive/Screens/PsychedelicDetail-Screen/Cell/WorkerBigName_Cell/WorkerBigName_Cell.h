@@ -8,10 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
-
-
-
 // ViewModels
 #import "ViewModel_WorkerBigName_Cell.h"
 
@@ -22,11 +18,11 @@
 
 @interface WorkerBigName_Cell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *cvImgView;
 @property (weak, nonatomic) IBOutlet UILabel *fullNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *postInCompnayLabel;
 
-@property (weak, nonatomic) ViewModel_WorkerBigName_Cell* vmWorkerCell;
+@property (weak, nonatomic) ViewModel_WorkerBigName_Cell* vmWorkerCell; // link on cell ViewModel
+
 
 
 @end

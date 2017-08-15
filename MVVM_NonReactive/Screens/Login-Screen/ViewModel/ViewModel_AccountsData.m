@@ -10,6 +10,7 @@
 
 @implementation ViewModel_AccountsData
 
+#pragma mark - UI Handler
 
 - (void) signInBtnClicked:(NSString*)login
                   andPass:(NSString*) pass
@@ -21,6 +22,7 @@
         // Проверка на правильность логина и пароля
         if ([[dictWithLoginAndPassword objectForKey:login] isEqualToString:pass])
         {
+            
             success(YES);
         }
         else

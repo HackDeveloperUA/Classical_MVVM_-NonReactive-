@@ -1,0 +1,6 @@
+framework module Pods_MVVM_NonReactive {
+  umbrella header "Pods-MVVM_NonReactive-umbrella.h"
+
+  export *
+  module * { export * }
+}

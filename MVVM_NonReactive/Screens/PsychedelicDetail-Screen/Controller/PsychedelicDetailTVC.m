@@ -8,91 +8,100 @@
 
 #import "PsychedelicDetailTVC.h"
 
+#import "Router.h"
+
+
 @interface PsychedelicDetailTVC ()
 
 @end
 
 @implementation PsychedelicDetailTVC
 
+#pragma mark - Inits methods
+
+- (instancetype)initWithVM:(ViewModel_ListOfPsychedelicWorkers_TableView*) vm
+{
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    self = [storyboard instantiateViewControllerWithIdentifier:@"PsychedelicDetailTVC"];
+    
+    if (self) {
+        self.title = @"Apple`s Engineers";
+        self.vmListOfPsychedelicWorkers_TableView = vm;
+    }
+    return self;
+}
+
+#pragma mark - Life cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 80.f;
 }
 
-#pragma mark - Table view data source
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return [self.vmListOfPsychedelicWorkers_TableView countWorkers];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    ViewModel_BasedWorker_Cell* vm  = [self.vmListOfPsychedelicWorkers_TableView cellViewModel:indexPath.row];
     
-    return cell;
+    if ([vm isKindOfClass: [ViewModel_WorkerLeftAlignment_Cell class]]){
+        WorkerLeftAlignment_Cell* cell = (WorkerLeftAlignment_Cell*)[tableView dequeueReusableCellWithIdentifier:@"WorkerLeftAlignment_Cell"];
+        cell.vmWorkerCell = (ViewModel_WorkerLeftAlignment_Cell*)vm;
+        return cell;
+    }
+    
+    if ([vm isKindOfClass: [ViewModel_WorkerRightAlignment_Cell class]]) {
+        WorkerRightAlignment_Cell* cell = (WorkerRightAlignment_Cell*)[tableView dequeueReusableCellWithIdentifier:@"WorkerRightAlignment_Cell"];
+        cell.vmWorkerCell = (ViewModel_WorkerRightAlignment_Cell*)vm;
+        return cell;
+    }
+    
+    if ([vm isKindOfClass: [ViewModel_WorkerBigName_Cell class]]) {
+       WorkerBigName_Cell* cell = (WorkerBigName_Cell*)[tableView dequeueReusableCellWithIdentifier:@"WorkerBigName_Cell"];
+        cell.vmWorkerCell = (ViewModel_WorkerBigName_Cell*)vm;
+        return cell;
+    }
+    
+    return nil;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    // Pass data to ViewModel for Routing
+    [self.vmListOfPsychedelicWorkers_TableView didSelectAtRowFromTable:indexPath];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+
+#pragma mark - Others
+
+
+- (void) setVmListOfPsychedelicWorkers_TableView:(ViewModel_ListOfPsychedelicWorkers_TableView *)vmListOfPsychedelicWorkers_TableView {
+    
+      _vmListOfPsychedelicWorkers_TableView = vmListOfPsychedelicWorkers_TableView;
+     [_vmListOfPsychedelicWorkers_TableView generateVMforCells:^(BOOL successOperation) {
+         [self.tableView reloadData];
+
+     } onFailure:^(NSError *errorBlock) {
+         NSLog(@"setControllerVM = %@",errorBlock);
+     }];
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

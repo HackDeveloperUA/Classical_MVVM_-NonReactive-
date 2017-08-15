@@ -18,12 +18,14 @@
 @property (nonatomic, strong) NSString* lastName;
 @property (nonatomic, strong) NSString* photoURL;
 
-@property (nonatomic, strong) NSString* thePost;
+@property (nonatomic, strong) NSString* postInCompany;
 @property (nonatomic, strong) NSString* mainText;
 
 
+#pragma mark - Inits methods
 - (instancetype) initWithServerResponse:(NSDictionary*) responseObject;
 
+#pragma mark - Mapping
 + (FEMMapping *)defaultMapping;
 
 @end

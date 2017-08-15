@@ -22,28 +22,27 @@
 }
 
 
-- (void) setVmWorkerCell:(ViewModel_Worker_Cell *)myVM
+- (void) setVmWorkerCell:(ViewModel_Worker_Cell *) vm
 {
-    _vmWorkerCell = myVM;
-    self.fullNameLabel.text = myVM.fullNameTitle;
-    self.postLabel.text     = myVM.postTitle;
+    _vmWorkerCell = vm;
+    self.fullNameLabel.text = vm.fullNameTitle;
+    self.postLabel.text     = vm.postTitle;
 
     
     self.cvPhotoImageView.layer.masksToBounds = YES;
     
     
-    NSURL* cvURL = [NSURL URLWithString: myVM.cvImageURL];
+    NSURL* cvURL = [NSURL URLWithString: vm.cvImageURL];
     
     [self.cvPhotoImageView setImageWithURLRequest:[NSURLRequest requestWithURL:cvURL] placeholderImage:[UIImage imageNamed:@"placeholder"] success:^(NSURLRequest* request, NSHTTPURLResponse* response, UIImage* image) {
-        NSLog(@"setImageWithURLRequest image = %@",image);
+
         self.cvPhotoImageView.image = image;
         self.cvPhotoImageView.layer.cornerRadius  = CGRectGetWidth(self.cvPhotoImageView.frame)/2;
 
     
     } failure:^(NSURLRequest* request, NSHTTPURLResponse* response, NSError* error) {
-        //
-        //NSLog(@"setImageWithURLRequest = %@\n Error = %@",response,error);
-        NSLog(@"setImageWithURLRequest = Error = %@",myVM.cvImageURL);
+        
+        NSLog(@"- (void) setVmWorkerCell:(ViewModel_Worker_Cell *) vm; setImageWithURLRequest = Error = %@",vm.cvImageURL);
 
     }];
     

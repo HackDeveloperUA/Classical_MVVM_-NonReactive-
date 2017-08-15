@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  WorkerTVC.h
 //  MVVM_NonReactive
 //
-//  Created by Uber on 27/07/2017.
+//  Created by Uber on 08/08/2017.
 //  Copyright © 2017 Uber. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface WorkerTVC : UITableViewController
 
 @end
-

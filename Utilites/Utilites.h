@@ -21,8 +21,15 @@
 
 @interface Utilites : NSObject
 
+#pragma mark - UIAlertViewController Helpers
+
 + (UIAlertController*) getAlertVCError:(id <Protocol_SMErrorAuntefication>) customError;
+
+
+#pragma mark - UIView Creating/Customizing Helpers
+
 + (void) aroundView:(UIView*) view withCorner:(CGFloat) corner;
+
 + (void) addShadowForView:(UIView*)view withColor:(UIColor*) colorShadow andOffset:(CGSize) offset andRaius:(CGFloat) radius;
 
 @end

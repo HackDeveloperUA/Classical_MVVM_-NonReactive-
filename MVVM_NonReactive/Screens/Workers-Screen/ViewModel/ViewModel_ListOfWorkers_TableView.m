@@ -13,6 +13,8 @@
 @implementation ViewModel_ListOfWorkers_TableView
 
 
+#pragma mark - Inits methods
+
 - (instancetype)init
 {
     self = [super init];
@@ -23,9 +25,10 @@
 }
 
 
+#pragma mark - Work with API
+
 - (void) updateWorkerList:(void(^)(BOOL successOperation)) success
-                onFailure:(void(^)(NSError* errorBlock,  NSObject* errObj)) failure
-{
+                onFailure:(void(^)(NSError* errorBlock,  NSObject* errObj)) failure {
     
     [self.cellsArray removeAllObjects];
     
@@ -45,15 +48,15 @@
 }
 
 
+#pragma mark - Methods for TableView work
 
-- (NSInteger) countWorkers
-{
+- (NSInteger) countWorkers{
     return self.cellsArray.count;
 }
 
 
-- (ViewModel_Worker_Cell*) cellViewModel:(NSInteger) index
-{
+- (ViewModel_Worker_Cell*) cellViewModel:(NSInteger) index {
+   
     if (index > self.cellsArray.count){
         return nil;
     }
@@ -61,11 +64,20 @@
 }
 
 
-- (void) didSelectAtRowFromTable:(NSIndexPath*) indexPath
-{
+#pragma mark  - UI Handlers
+
+- (void) didSelectAtRowFromTable:(NSIndexPath*) indexPath {
+    
     ViewModel_Worker_Cell* cellVM = [self cellViewModel:indexPath.row];
     [[Router sharedRouter] openDetailVCwithLinkOnFullCV: cellVM.model.linkOnFullModel];
 }
+
+- (void) logoutBtnClicked {
+    
+    [[Router sharedRouter] setIsLoginInUserDefaults:NO];
+    [[Router sharedRouter] openLoginVC];
+}
+
 
 @end
 

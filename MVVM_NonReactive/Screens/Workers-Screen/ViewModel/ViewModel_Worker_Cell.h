@@ -11,12 +11,6 @@
 // Model
 #import "WorkerShort.h"
 
-// Networking
-//#import <AFNetworking/AFNetworking.h>
-//#import <AFNetworking/UIImage+AFNetworking.h>
-//#import <AFNetworking/UIImageView+AFNetworking.h>
-
-//@import UIKit;
 
 @interface ViewModel_Worker_Cell : NSObject
 
@@ -24,8 +18,9 @@
 @property (nonatomic, strong) NSString* postTitle;
 @property (nonatomic, strong) NSString* cvImageURL;
 
-@property (nonatomic, strong) WorkerShort* model;
+@property (nonatomic, strong) WorkerShort* model; // link on model
 
+#pragma mark - Inits methods
 - (instancetype)initWithWorker:(WorkerShort*) worker;
 
 @end

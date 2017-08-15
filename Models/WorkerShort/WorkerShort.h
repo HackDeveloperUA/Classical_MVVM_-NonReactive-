@@ -19,7 +19,10 @@
 @property (nonatomic, strong) NSString* photoURL;
 @property (nonatomic, strong) NSString* linkOnFullModel;
 
+#pragma mark - Inits methods
 - (instancetype) initWithServerResponse:(NSDictionary*) response;
+
+#pragma mark - Mapping
 + (FEMMapping *)defaultMapping;
 
 @end

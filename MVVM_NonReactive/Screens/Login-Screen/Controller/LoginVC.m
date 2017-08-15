@@ -45,6 +45,7 @@
 {  [super viewWillDisappear:animated];  [self removeObservers];  }
 
 
+#pragma mark - Action
 
 - (IBAction)signInAction:(UIButton *)sender
 {
@@ -56,9 +57,13 @@
                        
                        // Stop Animation
                        [self animatedHUD:NO];
-                       // Init Router
-                       [[Router sharedRouter] openWorkersTVC];
                        
+                       // Next coordinate with helps Router
+                       if (successOperation){
+                           [[Router sharedRouter] setIsLoginInUserDefaults: successOperation];
+                           [[Router sharedRouter] openWorkersTVC];
+                       }
+                    
                    } onFailure:^(NSError *errorBlock, SMErrorAuthentication *errObjc) {
 
                        [self animatedHUD:NO];
@@ -72,14 +77,10 @@
 
 
 
-
-
-
-
 #pragma mark - Others
 
-- (void) animatedHUD:(BOOL) animated
-{
+- (void) animatedHUD:(BOOL) animated {
+    
     ANDispatchBlockToMainQueue(^{
         
         if (animated)
@@ -91,8 +92,8 @@
     });
 }
 
-- (void) setupUI
-{    // Arounds buttons
+- (void) setupUI {
+    // Arounds buttons
     [Utilites aroundView:self.fogotPassBtn     withCorner:45];
     [Utilites aroundView:self.signInBtn        withCorner:45];
     [Utilites aroundView:self.createAccountBtn withCorner:45];
@@ -109,8 +110,7 @@
 
 #pragma mark - Keybords methods
 
-- (void) addObservers
-{
+- (void) addObservers {
     // Notification that appears when you open the keyboard
     [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillShowNotification object:nil queue:nil usingBlock:^(NSNotification*  note) {
         [self keyboardWillShow:note];
@@ -121,8 +121,7 @@
     }];
 }
 
-- (void) keyboardWillShow:(NSNotification*) notification
-{
+- (void) keyboardWillShow:(NSNotification*) notification {
     // Get Dictionary
     NSDictionary* userInfo = notification.userInfo;
     if (userInfo)
@@ -136,31 +135,21 @@
     }
 }
 
-- (void) keyboardWillHide:(NSNotification*) notification
-{
+- (void) keyboardWillHide:(NSNotification*) notification{
     // Cancel inset
     self.scrollView.contentInset = UIEdgeInsetsZero;
 }
 
-- (void) removeObservers
-{
+- (void) removeObservers{
     // Unsubscribe from notifications
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void) didTapView:(UITapGestureRecognizer*) gesture
-{
+- (void) didTapView:(UITapGestureRecognizer*) gesture{
     [self.view endEditing:YES];
 }
 
-
-
-
-
-
-- (instancetype)init
-{
-    //self = [super init];
+- (instancetype)init{
     UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     self = [storyboard instantiateViewControllerWithIdentifier:@"LoginVC"];
     
@@ -169,12 +158,6 @@
     }
     return self;
 }
-
-
-
-
-
-
 
 
 @end

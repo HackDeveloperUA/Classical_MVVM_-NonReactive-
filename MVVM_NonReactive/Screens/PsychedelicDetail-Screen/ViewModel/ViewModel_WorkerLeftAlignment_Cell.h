@@ -18,8 +18,9 @@
 @property (nonatomic, strong) NSString* cvImgURL;
 @property (nonatomic, strong) NSString* postInCompany;
 
-@property (nonatomic, strong) WorkerFull* modelWorker;
+@property (nonatomic, strong) WorkerFull* modelWorker; // link on model
 
+#pragma mark - Init methods
 - (instancetype)initWithWorker:(WorkerFull*) worker;
 
 @end

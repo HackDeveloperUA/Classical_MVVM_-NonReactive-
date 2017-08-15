@@ -10,9 +10,11 @@
 
 
 /*
-  Протокол сделан на будущее, если что-нибудь понадобиться особенное
-  будем прописывать здесь
+ В данном протоколе описывается дополнительные поля, которые могут быть при работе с аутентификацией.
+ 
+ This Protocol describes the additional fields that can be when working with authentication
 */
+
 
 @protocol Protocol_SMErrorAuntefication <NSObject>
 

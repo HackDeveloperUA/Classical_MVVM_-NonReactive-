@@ -10,6 +10,8 @@
 
 @implementation WorkerFull
 
+#pragma mark - Inits methods
+
 -(instancetype) initWithServerResponse:(NSDictionary*) responseObject{
     
     self = [super init];
@@ -20,7 +22,7 @@
         self.lastName     = [responseObject objectForKey:@"lastName"];
         self.photoURL     = [responseObject objectForKey:@"photoURL"];
         
-        self.thePost      = [responseObject objectForKey:@"thePost"];
+        self.postInCompany      = [responseObject objectForKey:@"thePost"];
         self.mainText     = [responseObject objectForKey:@"mainText"];
         
         self.idNumber = [[responseObject objectForKey:@"id"] integerValue];
@@ -38,7 +40,7 @@
     [mapping addAttributesFromDictionary:@{ @"firstName"    : @"firstName",
                                             @"lastName"     : @"lastName",
                                             @"photoURL"     : @"photoURL",
-                                            @"thePost"      : @"thePost",
+                                            @"postInCompany": @"thePost",
                                             @"mainText"     : @"mainText",
                                             @"idNumber"     : @"id"
                                             }];

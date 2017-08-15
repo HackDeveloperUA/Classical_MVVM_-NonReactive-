@@ -10,6 +10,8 @@
 
 @implementation SMError
 
+#pragma mark - Inits methods
+
 - (instancetype) initWithTitle:(NSString*) title withSubtitle:(NSString*) subTitle withMessage:(NSString*) message
 {
     self = [super init];

@@ -17,6 +17,8 @@
 
 @implementation WorkerTVC
 
+#pragma mark - Inits methods
+
 - (instancetype)init
 {
     UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -24,15 +26,25 @@
     
     if (self) {
         self.title = @"Apple`s Engineers";
+        
+        UIImage *logOutIcon   = [[UIImage imageNamed:@"logout"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        if (self.navigationItem){
+
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:logOutIcon
+                                                                                  style:UIBarButtonItemStylePlain
+                                                                                 target:self
+                                                                                 action:@selector(logoutAction)];
+        }
     }
     return self;
 }
 
 
+#pragma mark - Life cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
 }
 
 #pragma mark - UITableViewDelegate
@@ -52,31 +64,36 @@
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString* identifier = @"WorkerCell";
-      WorkerCell *cell = (WorkerCell*)[tableView dequeueReusableCellWithIdentifier:identifier];
-
-        if (!cell) {
-            cell = (WorkerCell*)[[WorkerCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-        }
-        cell.vmWorkerCell = [self.vmListOfWorkers_TableView cellViewModel: indexPath.row];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    ViewModel_Worker_Cell* vm  = [self.vmListOfWorkers_TableView cellViewModel:indexPath.row];
+    
+    if ([vm isKindOfClass: [ViewModel_Worker_Cell class]]){
+        WorkerCell* cell  = (WorkerCell*)[tableView dequeueReusableCellWithIdentifier:@"WorkerCell"];
+        cell.vmWorkerCell = (ViewModel_Worker_Cell*)vm;
         return cell;
+    }
+    return nil;
 }
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    // Pass data to ViewModel for Routing
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    //[[Router sharedRouter] openDetailTVC_WithIndexPath:indexPath];
-    
     // 1. Call to VM
     [self.vmListOfWorkers_TableView didSelectAtRowFromTable:indexPath];
-    // 2. VM call to Router
+}
+
+#pragma mark - Actions
+
+- (void)logoutAction {
+    // Call to ViewModel
+    [self.vmListOfWorkers_TableView logoutBtnClicked];
 }
 
 #pragma mark - Others
 
+// Setters
 - (void) setVmListOfWorkers_TableView:(ViewModel_ListOfWorkers_TableView *)vmListOfWorkers_TableView
 {
      _vmListOfWorkers_TableView = vmListOfWorkers_TableView;

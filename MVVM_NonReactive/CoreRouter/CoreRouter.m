@@ -11,6 +11,9 @@
 @implementation CoreRouter
 
 
+#pragma mark - Navigaton methods
+
+
 + (void) present:(UIViewController*) vc animated:(BOOL) animate
 {
     UIViewController* currentVC = [self getRootViewController];
@@ -33,7 +36,6 @@
                           duration:0.65f
                            options:animateOption
                         completion:^(BOOL finished){
-                            // self.window.rootViewController = vc;
                             [CoreRouter getApplicationWindow].rootViewController = vc;
                         }];
         

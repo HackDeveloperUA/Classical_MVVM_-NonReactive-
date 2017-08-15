@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *fullNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *postInCompnayLabel;
 
-@property (weak, nonatomic) ViewModel_WorkerRightAlignment_Cell* vmWorkerCell;
+@property (weak, nonatomic) ViewModel_WorkerRightAlignment_Cell* vmWorkerCell; // link on cell ViewModel
+
 
 @end

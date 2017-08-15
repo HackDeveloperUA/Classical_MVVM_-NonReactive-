@@ -10,6 +10,7 @@
 
 #import "ServerManager.h"
 
+#import "Router.h"
 
 @implementation ViewModel_Worker_Detail
 
@@ -24,7 +25,7 @@
         _modelData = worker;
         
         self.fullNameTitle =  [NSString stringWithFormat:@"%@ %@",_modelData.firstName, _modelData.lastName];
-        self.postTitle     = self.modelData.thePost;
+        self.postTitle     = self.modelData.postInCompany;
         self.mainTextTitle = self.modelData.mainText;
         self.cvImageURL    = self.modelData.photoURL;
         
@@ -43,25 +44,8 @@
     return self;
 }
 
-#pragma mark - Helpers
 
-- (void) setModelData:(WorkerFull *)modelData
-{
-    _modelData = modelData;
-    [self setDataToSelfProperty:_modelData];
-}
-
-- (void) setDataToSelfProperty:(WorkerFull*) model
-{
-    self.fullNameTitle =  [NSString stringWithFormat:@"%@ %@", model.firstName, model.lastName];
-    self.postTitle     = model.thePost;
-    self.mainTextTitle = model.mainText;
-    self.cvImageURL    = model.photoURL;
-}
-
-
-
-#pragma mark - Server
+#pragma mark - Work with API
 
 -(void) getDetailWorkerModelFromServer:(NSString*) link
                              onSuccess:(void(^)(BOOL successOperation)) success
@@ -83,6 +67,31 @@
                                                   NSLog(@"Not found detail cv");
                                                   failure(errorBlock, statusCode);
                                               }];
+}
+
+#pragma mark - UI Handlers
+
+- (void) goToPscychedelicTVC_Clicked
+{
+    
+    [[Router sharedRouter] openPsychedelicDetailTVC:self.modelData];
+}
+
+
+#pragma mark - Helpers
+
+- (void) setModelData:(WorkerFull *)modelData
+{
+    _modelData = modelData;
+    [self setDataToSelfProperty:_modelData];
+}
+
+- (void) setDataToSelfProperty:(WorkerFull*) model
+{
+    self.fullNameTitle =  [NSString stringWithFormat:@"%@ %@", model.firstName, model.lastName];
+    self.postTitle     = model.postInCompany;
+    self.mainTextTitle = model.mainText;
+    self.cvImageURL    = model.photoURL;
 }
 
 @end

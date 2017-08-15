@@ -10,6 +10,8 @@
 
 @implementation ViewModel_WorkerBigName_Cell
 
+#pragma mark - Init methods
+
 - (instancetype)initWithWorker:(WorkerFull*) worker
 {
     self = [super init];
@@ -17,7 +19,7 @@
         
         self.modelWorker   = worker;
         self.fullNameTitle = [NSString stringWithFormat:@"%@ %@", _modelWorker.firstName, _modelWorker.lastName];
-        self.postInCompany = _modelWorker.thePost;
+        self.postInCompany = _modelWorker.postInCompany;
     }
     return self;
 }

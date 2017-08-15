@@ -8,21 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-/*
-// Models
-#import "FRPWeather.h"
-
-// ViewModels
-#import "FRPStartViewModel.h"
-#import "FRPCityCellViewModel.h"
-
-// Cells
-#import "FRPCityCell.h"
-
-// ViewControllers
-#import "FRPDetailsViewController.h"
-#import "FRPDetailsViewModel.h"
-*/
 
 // Models
 #import "WorkerShort.h"
@@ -34,14 +19,21 @@
 // Cell
 #import "WorkerCell.h"
 
-// Router
-//#import "Router.h"
+
+
+
+/*
+ RU:
+ Экран с таблицией топ работников Apple
+ 
+ EN:
+ The screen with table top Apple workers
+ */
 
 @class Router;
 
 @interface WorkerTVC : UITableViewController
 
-//@property (nonatomic, strong) WorkerController_VM* controllerVM;
-@property (nonatomic, strong) ViewModel_ListOfWorkers_TableView* vmListOfWorkers_TableView;
+@property (nonatomic, strong) ViewModel_ListOfWorkers_TableView* vmListOfWorkers_TableView; // link on controller viewmodel
 
 @end

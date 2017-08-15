@@ -14,7 +14,10 @@
 // Error Handlers
 #import "SMErrorAuthentication.h"
 
+
 @interface ViewModel_AccountsData : NSObject
+
+#pragma mark - UI Handler
 
 - (void) signInBtnClicked:(NSString*)login
                   andPass:(NSString*) pass

@@ -11,6 +11,9 @@
 
 @implementation Utilites
 
+#pragma mark - UIAlertViewController Helpers
+
+
 + (UIAlertController*) getAlertVCError:(id <Protocol_SMErrorAuntefication>) customError{
     
     if ([customError isKindOfClass:[SMErrorAuthentication class]])
@@ -25,6 +28,9 @@
 
     return nil;
 }
+
+#pragma mark - UIView Creating/Customizing Helpers
+
 
 + (void) aroundView:(UIView*) view withCorner:(CGFloat) corner{
 

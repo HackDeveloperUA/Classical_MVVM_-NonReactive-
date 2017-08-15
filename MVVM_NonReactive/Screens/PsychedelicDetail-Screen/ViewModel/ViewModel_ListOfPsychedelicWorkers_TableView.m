@@ -15,6 +15,8 @@
 @implementation ViewModel_ListOfPsychedelicWorkers_TableView
 
 
+#pragma mark - Init methods
+
 - (instancetype)initWithWorker:(WorkerFull*) workerModel
 {
     self = [super init];
@@ -26,12 +28,15 @@
 }
 
 
+#pragma mark - Work with API
+
+
 - (void) generateVMforCells:(void(^)(BOOL successOperation)) success
                   onFailure:(void(^)(NSError* errorBlock)) failure
 {
-    NSInteger countLeftAlignmentCell  =  RAND_FROM_TO(0, 3);
-    NSInteger countRightAlignmentCell =  RAND_FROM_TO(0, 3);
-    NSInteger countBigNameCell        =  RAND_FROM_TO(0, 3);
+    NSInteger countLeftAlignmentCell  =  RAND_FROM_TO(1, 5);
+    NSInteger countRightAlignmentCell =  RAND_FROM_TO(1, 5);
+    NSInteger countBigNameCell        =  RAND_FROM_TO(1, 5);
 
     for (int i = 0; i <= (countLeftAlignmentCell+countRightAlignmentCell+countBigNameCell); i++)
     {
@@ -48,27 +53,29 @@
     }
 }
 
-- (NSInteger) countWorkers
-{
+#pragma mark - Methods for TableView work
+
+- (NSInteger) countWorkers {
     return self.vmForCellsArray.count;
 }
 
 
-- (ViewModel_BasedWorker_Cell*) cellViewModel:(NSInteger) index
-{
+- (ViewModel_BasedWorker_Cell*) cellViewModel:(NSInteger) index {
+    
     if (index > self.vmForCellsArray.count){
         return nil;
     }
     return self.vmForCellsArray[index];
 }
 
-- (void) didSelectAtRowFromTable:(NSIndexPath*) indexPath
-{
-    //ViewModel_Worker_Cell* cellVM = [self cellViewModel:indexPath.row];
+#pragma mark - UI Handlers
+
+- (void) didSelectAtRowFromTable:(NSIndexPath*) indexPath {
+    
+
 }
 
 
-#pragma mark - private method
 
 
 @end

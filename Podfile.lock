@@ -1,0 +1,46 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - ANHelperFunctions (1.0.3)
+  - FastEasyMapping (1.0.2)
+  - FLAnimatedImage (1.0.12)
+  - MBProgressHUD (0.9.2)
+  - NYTPhotoViewer (1.2.0):
+    - NYTPhotoViewer/AnimatedGifSupport (= 1.2.0)
+    - NYTPhotoViewer/Core (= 1.2.0)
+  - NYTPhotoViewer/AnimatedGifSupport (1.2.0):
+    - FLAnimatedImage (~> 1.0.12)
+    - NYTPhotoViewer/Core
+  - NYTPhotoViewer/Core (1.2.0)
+
+DEPENDENCIES:
+  - AFNetworking (~> 3.0)
+  - ANHelperFunctions
+  - FastEasyMapping (~> 1.0.1)
+  - MBProgressHUD (~> 0.9.2)
+  - NYTPhotoViewer
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  ANHelperFunctions: 39cbb913f8af9b52fc8921ba4051583a7bfc13ab
+  FastEasyMapping: 77d566a817ca73304af3e7fbed130850238f1cb4
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  NYTPhotoViewer: 323217e4590a1586eb3c9674b3fefb0fb8b57896
+
+PODFILE CHECKSUM: 8e9a46e2fa8285b0e36d52717447cb001d02cb1c
+
+COCOAPODS: 1.3.0.beta.3

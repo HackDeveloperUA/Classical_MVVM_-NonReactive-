@@ -10,6 +10,7 @@
 
 @implementation WorkerShort
 
+#pragma mark - Inits methods
 - (instancetype) initWithServerResponse:(NSDictionary*) response
 {
     self = [super init];
@@ -29,7 +30,6 @@
 
 + (FEMMapping *) defaultMapping {
     FEMMapping* mapping = [[FEMMapping alloc] initWithObjectClass:[WorkerShort class]];
-    
     // property from nsobject : keypath from json
     [mapping addAttributesFromDictionary:@{ @"firstName"     : @"firstName",
                                             @"lastName"      : @"lastName",

@@ -10,11 +10,30 @@
 
 #import <AFNetworking/UIImage+AFNetworking.h>
 #import <AFNetworking/UIImageView+AFNetworking.h>
+
+
+
 @interface DetailVC ()
 
 @end
 
 @implementation DetailVC
+
+#pragma mark - Inits methods
+
+- (instancetype)init
+{
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    self = [storyboard instantiateViewControllerWithIdentifier:@"DetailVC"];
+    
+    if (self) {
+        
+    }
+    return self;
+}
+
+
+#pragma mark - Life cycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,19 +53,19 @@
 }
 
 
-- (instancetype)init
-{
-    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    self = [storyboard instantiateViewControllerWithIdentifier:@"DetailVC"];
+
+#pragma mark - Action
+
+- (IBAction)goToPscychedelicTVC:(id)sender {
     
-    if (self) {
-        
-    }
-    return self;
+    [self.vmWorkerDetail goToPscychedelicTVC_Clicked];
 }
 
-- (void) setVmWorkerDetail:(ViewModel_Worker_Detail *)vmWorkerDetail
-{
+
+#pragma mark - Settets
+
+- (void) setVmWorkerDetail:(ViewModel_Worker_Detail *)vmWorkerDetail {
+    
     _vmWorkerDetail = vmWorkerDetail;
     [_vmWorkerDetail getDetailWorkerModelFromServer:_vmWorkerDetail.linkOnFullCV
                                      onSuccess:^(BOOL successOperation) {
@@ -56,12 +75,13 @@
                                              
                                      } onFailure:^(NSError *errorBlock, NSInteger statusCode) {
                                         // Print error
+                                         NSLog(@"errorBlock = %@",errorBlock);
                                      }];
 }
 
+#pragma mark - UI Setting
 
-- (void) setupUIwithSelfViewModel
-{
+- (void) setupUIwithSelfViewModel {
     
     self.fullNameLabel.text       = self.vmWorkerDetail.fullNameTitle;
     self.postInCompanyLabel.text  = self.vmWorkerDetail.postTitle;

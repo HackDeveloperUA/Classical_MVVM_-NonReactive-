@@ -13,7 +13,6 @@
 
 @interface AppDelegate ()
 
-
 @end
 
 @implementation AppDelegate
@@ -24,9 +23,10 @@
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     [self.window makeKeyAndVisible];
     
-    [[Router sharedRouter] openLoginVC];
-    //[[Router sharedRouter] openWorkersTVC];
 
+ 
+    [[Router sharedRouter] openApplication];
+    
     return YES;
 }
 

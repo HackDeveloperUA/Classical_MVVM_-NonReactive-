@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+/*
+  Тут описана общая концепция объекта ошибки
+  Here are described the General concept of an object error
+*/
+
 @protocol Protocol_SMError <NSObject>
 
 @required

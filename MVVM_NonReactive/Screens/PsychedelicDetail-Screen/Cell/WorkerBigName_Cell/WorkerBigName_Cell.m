@@ -21,4 +21,13 @@
     // Configure the view for the selected state
 }
 
+// Setting data to cell`s view
+- (void) setVmWorkerCell:(ViewModel_WorkerBigName_Cell *)myVM
+{
+    _vmWorkerCell = myVM;
+    
+    self.fullNameLabel.text      = myVM.fullNameTitle;
+    self.postInCompnayLabel.text = myVM.postInCompany;
+}
+
 @end

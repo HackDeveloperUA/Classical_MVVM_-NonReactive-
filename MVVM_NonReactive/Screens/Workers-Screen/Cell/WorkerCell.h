@@ -21,6 +21,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *fullNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *postLabel;
 
-@property (weak, nonatomic) ViewModel_Worker_Cell* vmWorkerCell;
+@property (weak, nonatomic) ViewModel_Worker_Cell* vmWorkerCell; // link on cell viewmodel
 
 @end

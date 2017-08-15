@@ -22,6 +22,7 @@
 }
 
 
+// Setting data to cell`s view
 - (void) setVmWorkerCell:(ViewModel_WorkerLeftAlignment_Cell *)myVM
 {
     _vmWorkerCell = myVM;

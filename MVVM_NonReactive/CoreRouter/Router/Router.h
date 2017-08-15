@@ -11,15 +11,21 @@
 #import "CoreRouter.h"
 
 
-
+//Controllers
 @class LoginVC;
 @class WorkerTVC;
 @class DetailVC;
+@class PsychedelicDetailTVC;
 
 //ViewModels
-@class LoginVC_VM_AccountsData;
+@class ViewModel_AccountsData;
 @class ViewModel_ListOfWorkers_TableView;
-@class DetailController_VM;
+@class ViewModel_ListOfPsychedelicWorkers_TableView;
+@class ViewModel_Worker_Detail;
+
+//Models
+@class WorkerFull;
+
 
 #import "CoreRouterProtocol.h"
 
@@ -27,7 +33,6 @@
 
 //  Core
 + (Router*) sharedRouter;
-
 
 @property (nonatomic, strong) UINavigationController* mainNavContr;
 @property (nonatomic, strong) WorkerTVC* mainWorkersTVC;
@@ -36,82 +41,18 @@
 - (void) openApplication;
 - (void) openLoginVC;
 - (void) openWorkersTVC;
-//- (void) openDetailVC:(NSIndexPath*) indexPath;
 - (void) openDetailVCwithLinkOnFullCV:(NSString*) link;
-
-@end
-
-
-// property with 'retain (or strong)' attrubute must be of object type
-
-
-
-
-//------------------------ OLD Implemenation  ------------------------------------------------------//
-
-/*
-// Controllers
-#import "MainNavContr.h"
-#import "MainTVC.h"
-#import "RightMenuTVC.h"
-#import "LeftMenuTVC.h"
-
-#import "LoginVC.h"
-#import "MainOnBoardingVC.h"
-#import "DetailVC.h"
-#import "LGSideMenuController.h"
-
-// Protocols
-#import "CoreRouterProtocol.h"
-
-@interface Router : CoreRouter <CoreRouterProtocol>
-
-//  Core
-+ (Router*) sharedRouter;
-
-#pragma mark - Controllers for menu 
-
-@property (nonatomic, strong) LGSideMenuController* slideOutMenu;
-@property (nonatomic, strong) MainNavContr* navContrForMainTVC;
-
-@property (nonatomic, strong) MainTVC*      mainTVC;
-@property (nonatomic, strong) LeftMenuTVC*  leftMenuTVC;
-@property (nonatomic, strong) RightMenuTVC* rightMenuTVC;
-
-@property (nonatomic, assign) BOOL supportLeftMenu;
-@property (nonatomic, assign) BOOL supportRightMenu;
-
-#pragma mark - Helpers Method for Menu Controllers
-
-- (BOOL) haveControllerForMenuInMemory;
-- (void) removeFromMemoryControllersForMenu;
-- (void) initInMemoryControllersForMenuInitLeftMenu:(BOOL) initLeftMenu andRight:(BOOL) initRightMenu;
+- (void) openPsychedelicDetailTVC:(WorkerFull*) workerModel;
 
 
 #pragma mark - Routing method & propierties
 
 // NSUserDefaults properties
 @property (nonatomic, assign) BOOL isLogin;
-@property (nonatomic, assign) BOOL isLearningOnBoarding;
 
 - (void) setIsLoginInUserDefaults:(BOOL) isLogin;
-- (void) setIsLearningOnBoardingInUserDefaults:(BOOL) isLearningOnBoarding;
-
 - (BOOL) getIsLoginFromUserDefault;
-- (BOOL) getIsLearningOnBoardingFromUserDefault;
-
-// Open Controllers
-- (void) openApplication;
-- (void) openLoginVC;
-- (void) openOnBoarding;
-- (void) openMainTVC;
-
-
-// TODO: implement in the future
-
-- (void) openInfoTVC;
-- (void) openAdvertisingVC;
-- (void) openDetailTVC_WithIndexPath:(NSIndexPath*) indexPath;
 
 @end
-*/
+
+

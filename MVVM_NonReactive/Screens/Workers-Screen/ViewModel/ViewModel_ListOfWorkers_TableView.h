@@ -22,13 +22,21 @@
 @property (nonatomic, strong) NSMutableArray* cellsArray; // Here store ViewModels
 @property (nonatomic, strong) NSMutableArray* modelArray; // Here story Model
 
+
+#pragma mark - Work with API
+
 - (void) updateWorkerList:(void(^)(BOOL successOperation)) success
                 onFailure:(void(^)(NSError* errorBlock,  NSObject* errObj)) failure;
 
-- (ViewModel_Worker_Cell*) cellViewModel:(NSInteger) index;
 
+#pragma mark - Methods for TableView work
+
+- (ViewModel_Worker_Cell*) cellViewModel:(NSInteger) index;
 - (NSInteger) countWorkers;
 
+#pragma mark  - UI Handlers
+
 - (void) didSelectAtRowFromTable:(NSIndexPath*) indexPath;
+- (void) logoutBtnClicked;
 
 @end

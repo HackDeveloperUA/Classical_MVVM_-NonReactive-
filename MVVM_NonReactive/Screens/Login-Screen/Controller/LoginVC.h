@@ -18,11 +18,17 @@
 #import "MBProgressHUD.h"
 #import "ANHelperFunctions.h"
 
+/*
+   RU:
+   Экран на котором происходит процесс псевдо-аутентификации
+   
+   EN:
+   The screen where the process of pseudo-authentication.
+*/
 
 @interface LoginVC : UIViewController
 
-//@property (strong, nonatomic) LoginVC_VM_AccountsData* vm;
-
+// link on viewmodel
 @property (strong, nonatomic) ViewModel_AccountsData* vmAccountsData;
 @property (strong, nonatomic) MBProgressHUD *HUD;
 
